@@ -1,9 +1,19 @@
 import streamlit as st
 
 st.title("🎈 Project Kelompok 11")
+import datetime
 import streamlit as st
 
-col1, col2, col3 = st.columns(3)
-col1.metric("Temperature", "70 °F", "1.2 °F")
-col2.metric("Wind", "9 mph", "-8%")
-col3.metric("Humidity", "86%", "4%")
+today = datetime.datetime.now()
+next_year = today.year + 1
+jan_1 = datetime.date(next_year, 1, 1)
+dec_31 = datetime.date(next_year, 12, 31)
+
+d = st.date_input(
+    "Select your vacation for next year",
+    (jan_1, datetime.date(next_year, 1, 7)),
+    jan_1,
+    dec_31,
+    format="MM.DD.YYYY",
+)
+d
